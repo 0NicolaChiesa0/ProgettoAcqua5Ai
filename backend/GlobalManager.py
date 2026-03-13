@@ -1,14 +1,22 @@
-class ChoiceEnum(str, _Enum):
+from enum import Enum
+
+class ChoiceEnum(str, Enum):
     ALL_TO_A = "all to a"
     ALL_TO_B = "all to b"
     SHARED   = "shared"
-
+# #endclass
 
 
 class GlobalManager:
-    INSTANCE: GlobalManager
+    INSTANCE = None
 
     def __init__(self):
         GlobalManager.INSTANCE = self
 
         self.choice: ChoiceEnum = None
+    # #enddef
+
+    def set_choice(self, choice):
+        self.choice = choice
+    # #enddef
+# #enclass
